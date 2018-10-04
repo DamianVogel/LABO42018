@@ -135,7 +135,43 @@ class Helado
 			}
 		}
 
-	
+		//BajaHelado
+		public static function BajaHelado($id)
+		{
+			
+			if(is_numeric($id))
+			{
+				$objetoAcceso = AccesoDatos::DameUnObjetoAcceso();
+				$consulta = $objetoAcceso->RetornarConsulta('	DELETE FROM `helados` 
+																WHERE 	id_helados=:id ');
+				
+				//parametros
+				$consulta->bindvalue(':id', $id , PDO::PARAM_INT); 
+				$consulta->Execute();
+				
+				$resultado = $consulta->rowCount();
+			
+					if ($resultado==0)
+					{
+						$resultado = "El helado no existe";
+					}
+					else
+					{
+						$resultado = "El helado fue BORRADO";
+					}
+
+				return $resultado;
+			}
+			else
+			{
+				return "El dato es invalido, debe ser un entero";
+			}
+		
+		
+		}
+
+
+
 
 	
 

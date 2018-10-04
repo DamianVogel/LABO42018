@@ -25,6 +25,7 @@ import { TablaMatComponent } from './componentes/tabla-mat/tabla-mat.component';
 import {MatTabsModule} from '@angular/material/tabs';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
+import { BorrarBotonComponent } from './componentes/borrar-boton/borrar-boton.component';
 
 const miRuteo = [{path:'pruebaRuteo', component:TemaComponent},
                  {path:'pruebaParcial', component:HeladosComponent},
@@ -41,7 +42,8 @@ const miRuteo = [{path:'pruebaRuteo', component:TemaComponent},
     TraerUnHeladoComponent,
     PrincipalComponent,
     ListadoHeladosComponent,
-    TablaMatComponent
+    TablaMatComponent,
+    BorrarBotonComponent
   ],
   imports: [
     BrowserModule,

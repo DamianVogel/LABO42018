@@ -2,6 +2,9 @@ import { Injectable } from '@angular/core';
 import { MiHttpService } from './mi-http.service';
 import { Observable } from 'rxjs';
 
+import { URLSearchParams } from "@angular/http";
+
+
 @Injectable({
   providedIn: 'root'
 })
@@ -30,6 +33,18 @@ export class HeladosService {
       .pipe(data => { return data; });
   }
 
-
+  public ServiceDeleteUnHelado(idHelado):Observable<any> {
+   
+    /*
+    return this.miHttp.httpPost("borrarHelado",idHelado)
+    .then((data)=>{return data})
+    .catch((data)=>{return data})
+    */
+    
+    
+  
+    return this.miHttp.httpPost("borrarHelado/"+idHelado, {})
+      .pipe(data => { return data; });
+  }
 
 }

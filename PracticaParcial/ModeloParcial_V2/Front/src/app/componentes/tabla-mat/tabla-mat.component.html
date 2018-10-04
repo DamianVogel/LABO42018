@@ -33,6 +33,7 @@
   <th mat-header-cell *matHeaderCellDef> Funciones </th>
   <td mat-cell *matCellDef="let element"> 
   <button  mat-stroked-button (click)="MuestroSeleccion(element.id_helado)"> Seleccionar Helado</button>
+  <app-borrar-boton [id]="element.id_helado" ></app-borrar-boton>
   </td>
  </ng-container>
 

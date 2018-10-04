@@ -30,7 +30,7 @@ $app->add(function ($req, $res, $next) {
         $response = $next($req, $res);
         return $response
                 ->withHeader('Access-Control-Allow-Origin', '*')
-                ->withHeader('Access-Control-Allow-Headers', 'X-Requested-With, Content-Type, Accept, Origin, Authorization')
+                ->withHeader('Access-Control-Allow-Headers', '*, X-Requested-With, Content-Type, Accept, Origin, Authorization')
                 ->withHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
     });
 
@@ -71,6 +71,14 @@ $app->add(function ($req, $res, $next) {
 
                 });
 
+                $app->post('/borrarHelado/[{id}]',function (Request $request, Response $response,$args) {
+                        
+                        $ArrayDeParametros = $request->getParsedBody();  
+                                                        
+                        $resultado = Helado::BajaHelado($ArrayDeParametros['id']);
+                        
+                        return $response->withJson($resultado);
+                });
                 
 
 //////////////////////////////////////ACCIONES//////////////////////////////////
